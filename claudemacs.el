@@ -1443,7 +1443,7 @@ Returns a list of parsed transient suffix objects."
                      (transient-parse-suffix
                       'claudemacs-start-menu
                       (list key desc
-                            (lambda () (interactive) (claudemacs--start-tool-by-index i)))))))
+                            `(lambda () (interactive) (claudemacs--start-tool-by-index ,i)))))))
 
 (defun claudemacs--setup-resume-tool-suffixes (_)
   "Generate tool suffixes dynamically for the resume menu.
@@ -1457,7 +1457,7 @@ Returns a list of parsed transient suffix objects."
                      (transient-parse-suffix
                       'claudemacs-resume-menu
                       (list key desc
-                            (lambda () (interactive) (claudemacs--resume-tool-by-index i)))))))
+                            `(lambda () (interactive) (claudemacs--resume-tool-by-index ,i)))))))
 
 ;;;###autoload (autoload 'claudemacs-start-menu "claudemacs" nil t)
 (transient-define-prefix claudemacs-start-menu ()
